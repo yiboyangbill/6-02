@@ -1,0 +1,24 @@
+local numberTextField = native.newTextField( display.contentCenterX, display.contentCenterY + 50, 300, 50 )
+numberTextField.id = "numberTextField"
+
+local image = display.newImageRect( "enterButton.png", 150, 75 )
+image.x = display.contentCenterX
+image.y = 100
+image.id = "enterButton"
+
+display.newText( "enter an integer", display.contentCenterX, display.contentCenterY, native.systemFont, 20 )
+
+local answerTextField = native.newTextField( display.contentCenterX, display.contentCenterY + -50, 300, 50 )
+answerTextField.id = "answerTextField"
+
+local function enterButtonTouch( event )
+	
+	if tonumber(numberTextField.text) < 0 then
+		answerTextField.text = "negative"
+		else answerTextField.text = "positive"
+		
+	end
+end
+	
+
+image:addEventListener( "touch", enterButtonTouch )
